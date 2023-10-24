@@ -1,0 +1,46 @@
+.sibling-fade { visibility: hidden; }
+/* Uniemożliwia uruchomienie :hover w przerwach między elementami */
+
+.sibling-fade > * { visibility: visible; }
+/* Przywraca elementy podrzędne, nawet jeśli element nadrzędny jest „ukryty” */
+
+.sibling-fade > * { transition: opacity 150ms linear 100ms, transform 150ms ease-in-out 100ms; }
+/* Sprawia, że przejścia są płynne, z lekkim opóźnieniem, aby zapobiec skokom podczas poruszania myszą między elementami */
+
+.sibling-fade:hover > * { opacity: 0.4; transform: scale(0.9); }
+/* Przy zaznaczeniu elementu nadrzędnego, wszystkie elementy zanikają stopniowo */
+
+.sibling-fade > *:hover { opacity: 1; transform: scale(1); transition-delay: 0ms, 0ms; }
+/* Wyświetla zanikający w tej chwili element */
+
+
+
+
+
+
+html { display: flex; height: 100%; }
+body { 
+ 
+  /*background: radial-gradient(circle closet-corner, #f05555, #8f1c1c);*/
+  background:#f05555;
+  padding: 10px;
+  max-width: 40em;
+  margin: auto;
+}
+
+.sibling-fade {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sibling-fade > * {
+  background: white;
+  padding: 1em;
+  flex: auto;
+  margin: 0.3em;
+  text-align: center;
+  color: #f05555;
+  font-size: 1.5em;
+  text-decoration: none;
+}
+

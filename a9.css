@@ -1,0 +1,73 @@
+* {
+  box-sizing: border-box;
+  font-family: "Spartan";
+}
+
+body {
+  background: #ff00cc; /* fallback for old browsers */ /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #333399, #ff00cc); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#pillar {
+  display: block;
+  margin: 100px auto;
+  width: 300px;
+  transform: translateX(-200px);
+  perspective: 1900px;
+}
+
+.wrap {
+  display: flex;
+  transform: rotateY(0deg);
+  transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform-style: preserve-3d;
+}
+
+.row {
+  width: 800px;
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: all 3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.row:hover .wrap {
+  transform: rotateY(-45deg);
+  cursor: pointer;
+}
+.row:hover {
+  z-index: 1;
+}
+.row:hover .left:before {
+  width: 55%;
+}
+.row .left {
+  width: 400px;
+  padding: 15px 20px;
+  text-align: right;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+}
+.row .left:before {
+  content: "";
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  transition: width 1s ease-in-out;
+}
+.row .right {
+  width: 400px;
+  padding: 15px 20px;
+  text-align: left;
+  transform: rotateY(90deg);
+  transform-origin: left center;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}/*# sourceMappingURL=a9.css.map */

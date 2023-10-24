@@ -1,0 +1,66 @@
+body{
+    margin:0;
+    padding:0;
+    background:rgb(188, 144, 249);
+    font-family:cursive;
+  }
+  .card{
+    width:300px;
+    height:400px;
+    position:absolute; /* nie zmienia swojej pozycji, kiedy są inne elementy*/
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%)perspective(2000px);/* przesunięcia elementu o 50% swojej szerokości i 50% swojej wysokości w górę i w lewo*/
+    background:#f5d8ff;
+    transform-style:preserve-3d;
+    box-shadow:inset 300px 0 50px rgba(0,0,0,.5),0 20px 100px rgba(0,0,0,.5);/* dodaje cienie: cień wewnętrzny o przesunięciu 300 pikseli od lewej krawędzi, rozmyciu 50 pikseli i kolorze czarnym z poziomem przezroczystości 0.5 i  cień zewnętrzny o przesunięciu pionowym 20 pikseli, rozmyciu 100 pikseli i tym samym kolorze i poziomie przezroczystości*/
+    transition:1s;
+  }
+  .card:hover{
+    transform:translate(-50%,-50%) perspective(2000px) rotate(-10deg); /* rotate obraca element o -10 stopni w kierunku przeciwnym do ruchu wskazówek zegara*/ 
+     box-shadow:inset 20px 0 50px rgba(0,0,0,.5),0 10px 100px rgba(0,0,0,.5);
+  }
+  .card:before{
+    content:'';/* brak tekstu*/
+    position:absolute;
+    top:-5px;
+    left:0;
+    width:100%;
+    height:5px;
+    background:#4c0d67;
+    transform-origin:bottom;/*przekształcenie będzie wykonywane wokół dolnej krawędzi elementu*/
+    transform:skewX(-45deg);/*element zostanie pochylony o kąt -45 stopni wzdłuż osi poziomej*/
+  }
+  .card:after{
+    content:'';
+    position:absolute;
+    top:0;
+    right:-5px;
+    width:5px;
+    height:100%;
+    background:#4c0d67;
+    transform-origin:left;
+    transform:skewY(-45deg);
+  }
+  .card .imgBox img{
+    height:100%;
+    width:100%;
+  }
+  
+  .card .imgBox{
+    width:100%;
+    height:100%;
+    position:relative;/*element będzie pozycjonowany względem swojej normalnej lokalizacji w dokumencie*/
+    transform-origin:left;
+    transition:1s cubic-bezier(.15,1.7,.84,.58);/*czas trwania przejścia animacji to  1 sekunda, kontroluje sposób, w jaki ta animacja przyspiesza i zwalnia w trakcie trwania przejścia*/
+  }
+  .card:hover .imgBox{
+    transform:rotateY(-125deg)
+  }
+  .card .details{
+    position:absolute;
+    top:0;left:0;
+    box-sizing:boreder-box;
+    padding:20px;
+      z-index:-1;/*umieszcza element "details" za innymi elementami na stronie*/
+  }

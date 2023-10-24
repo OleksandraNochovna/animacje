@@ -1,0 +1,77 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(340, 100%, 92%);
+  }
+  
+  .naglowek {
+    font-family: "Dancing Script", cursive;
+    text-align: center;
+    font-size: 64px;
+    color: #f75b95;
+    margin: 0 0 70px;/*góra, prawo, dół, lewo 0, bo nie podano*/
+  }
+  
+  .kolka {
+    display: flex;
+    justify-content: center;
+    width: 90%;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+  
+  .kolo {
+    position: relative;/*będzie pozycjonowany względem swojego normalnego położenia w dokumencie*/
+    transition: all 0.3s;/* "all" oznacza, że animacja obejmuje wszystkie zmiany stylu*/
+  }
+  
+  .kolo:hover {
+    transform: translateY(25px);/* 25 px w dół*/
+  }
+  
+  .kolo img {
+    max-width: 100%;
+    border-radius: 50%;
+    border: 2px solid #ff90a8;
+    filter: drop-shadow(-20px 0 10px rgba(0, 0, 0, 0.1));/*jest przesunięty o 20 pikseli w lewo, ma rozmycie 10 pikseli i "0" - określa przesunięcie cienia wzdłuż osi pionowej*/
+    cursor: pointer;
+  }
+
+  .kolo:not(:first-child) img {
+    margin-left: -20px;
+  }
+  
+  .kolo .name {
+    position: absolute;
+    background-color: #f75b95;
+    color: #fff;
+    font-family: "Bebas Neue", cursive;
+    padding: 15px 30px;
+    border-radius: 100px;
+    bottom: -80px; 
+    left: 50%;
+    white-space: nowrap;
+    transform: translate(-50%, -50px);
+    letter-spacing: 1px;
+    font-size: 20px;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+  
+  .kolo .name::before {
+    content: "";
+    position: absolute;
+    width: 15px; height: 15px;
+    background-color: #f75b95;
+    top: 0; left: 50%;
+    transform: translate(-50%, -50%) rotate(45deg);/*to mały romb nad name*/
+  }
+  
+  .kolo img:hover + .name {
+    opacity: 1;/*przy hover staje nie przezroczysty*/
+    transform: translateX(-50%);/*przesuwanie się name w lewo*/
+    box-shadow: 0 10px 20px rgba(94, 29, 59, 0.3);
+  }

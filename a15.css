@@ -1,0 +1,33 @@
+img {
+	--s: 250px;   /* rozmiar obrazu */
+	--b: 8px;    
+	--g: 14px;    /*gap */
+	--c: #e9e9d4;
+	
+	width: var(--s);/*var oznacza zmiennej niestandarowej*/
+	aspect-ratio: 1; /*proporcje 1:1*/
+	outline: calc(var(--s)/2) solid #0009;
+	outline-offset: calc(var(--s)/-2);
+	cursor: pointer;
+	transition: .3s;
+  }
+  img:hover {
+	outline: var(--b) solid var(--c);
+	outline-offset: var(--g); /*outline-offset:służy do określania odstępu między konturem elementu a jego krawędziami */
+  }
+  
+  img + img {
+	border-radius: 50%; /*img+img oznacza że odnosi się do img, który ma przed sobą inny img*/
+  }
+  
+  
+  body {
+	margin: 0;
+	min-height: 100vh;
+	display: grid;
+	grid-auto-flow: column;
+	gap: 50px;
+	place-content: center;
+	place-items: center;
+	background: #99a8ff;
+  }

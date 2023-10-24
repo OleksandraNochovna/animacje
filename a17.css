@@ -1,0 +1,38 @@
+img {
+    --color: #FFC8D3; 
+    --border: 10px;  
+    --offset: 20px;   /*odległość borderu od img*/
+    --gap: 5px;       /*ten gap będzie wykorzystywany w kodzie na dole, bez nie niema borderu*/
+    
+    --_c: var(--color) var(--border), #0000 0 calc(100% - var(--border)),var(--color) 0;
+    --_o: calc(3*var(--offset));
+    padding: 
+      calc(var(--gap) + var(--border))
+      calc(var(--gap) + var(--border) + var(--offset))
+      calc(var(--gap) + var(--border) + var(--offset))
+      calc(var(--gap) + var(--border));
+    background: 
+      linear-gradient(      var(--_c)) var(--_o) var(--_o),
+      linear-gradient(90deg,var(--_c)) var(--_o) var(--_o);
+    background-size: calc(100% - var(--_o)) calc(100% - var(--_o));
+    background-repeat: no-repeat;/*obraz tła będzie zajmował tylko tyle miejsca, ile jest potrzebne, aby wypełnić tło elementu i nie będzie się powtarzał*/
+    filter: grayscale(.6);
+    transition: .5s;
+    cursor: pointer;
+  }
+  img:hover {
+    background-position: 0px 0px;
+    background-size: calc(100% - var(--offset)) calc(100% - var(--offset));
+    filter: grayscale(0);
+  }
+  
+  body {
+    background: #B29298;
+    display: grid;
+    gap: 40px;
+    height: 100vh;
+    margin: 0;
+    grid-auto-flow: column;
+    place-content: center;/* "place-content" jest używana w kontenerach typu grid do jednoczesnego ustawiania właściwości "align-content" i "justify-content" w jednym zapisie*/
+  }
+  
